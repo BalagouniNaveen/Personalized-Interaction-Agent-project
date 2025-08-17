@@ -1,0 +1,16 @@
+Test the API:
+
+python app/main.py
+
+Open browser or use curl:
+
+curl http://127.0.0.1:5000/recommend/1
+
+
+Example output:
+
+{
+  "user_id": 1,
+  "action": "recommend_product",
+  "score": 0.82
+}
