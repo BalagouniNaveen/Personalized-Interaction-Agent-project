@@ -279,6 +279,3 @@ pytest tests/
 
 ---
 
-If you want, I can now **draw a full visual flowchart** showing **User → Agent → KumoRFM → Recommendation**, which will make your project presentation **professional and easy to understand**.
-
-Do you want me to create that next?
