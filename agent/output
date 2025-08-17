@@ -1,0 +1,3 @@
+Output:
+
+{'user_id': 1, 'action': 'recommend_product', 'score': 0.82}
