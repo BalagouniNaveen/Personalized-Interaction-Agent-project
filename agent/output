@@ -1,3 +1,56 @@
 Output:
 
+├─ agent/
+│   ├─ __init__.py
+│   ├─ agent.py                    # Core agent logic
+│   └─ utils.py                    # Helper functions
+
+ agent.py  Output:                  # Core agent logic
+
 {'user_id': 1, 'action': 'recommend_product', 'score': 0.82}
+
+
+
+### **File:** `agent/utils.py`
+
+
+### **How to Use in Agent**
+
+```python
+from agent.utils import validate_user_data, days_since_last_active, format_recommendation_output
+
+user_data = {
+    "user_id": 1,
+    "age": 25,
+    "gender": "M",
+    "last_active": "2025-08-10",
+    "interactions": 15,
+    "purchases": 2
+}
+
+if validate_user_data(user_data):
+    inactive_days = days_since_last_active(user_data["last_active"])
+    print(f"User inactive for {inactive_days} days")
+
+formatted = format_recommendation_output(user_data["user_id"], "recommend_product", 0.82)
+print(formatted)
+```
+
+** Output:**
+
+```text
+User inactive for 7 days
+{'user_id': 1, 'action': 'recommend_product', 'engagement_score': 0.82}
+```
+
+---
+
+###  **Explanation**
+
+1. **`validate_user_data`** → Ensures all required fields exist before running predictions.
+2. **`parse_date` & `days_since_last_active`** → Converts dates and calculates inactivity for logic like targeting or engagement.
+3. **`format_recommendation_output`** → Provides a clean, consistent API output structure.
+
+---
+
+
