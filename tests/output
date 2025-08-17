@@ -1,0 +1,32 @@
+Run Unit Tests
+pytest tests/
+
+Output (stdout)
+============================= test session starts ==============================
+platform win32 -- Python 3.11.6, pytest-7.4.2, pluggy-1.3.0
+rootdir: C:\personalized-agent
+collected 1 item
+
+tests/test_agent.py .                                                  [100%]
+
+============================== 1 passed in 0.12s ===============================
+
+
+
+Explanation of Output
+
+collected 1 item → Pytest found 1 test function (test_recommendation).
+
+. → The test passed.
+
+[100%] → All tests executed successfully.
+
+1 passed in 0.12s → Confirms the agent recommendation logic is working as expected.
+
+What It Validates:
+
+The recommendation returns an action.
+
+The prediction returns a score.
+
+The score is within valid range [0,1].
