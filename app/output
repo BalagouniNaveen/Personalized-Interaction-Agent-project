@@ -1,16 +1,85 @@
-Test the API:
 
+
+### **Step 5 Recap: Run Flask API**
+
+```bash
 python app/main.py
+```
 
-Open browser or use curl:
+**Flask Server Output in Terminal:**
 
+```
+ * Serving Flask app 'main'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://127.0.0.1:5000
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 123-456-789
+```
+
+---
+
+### **Test API Call Using curl**
+
+```bash
 curl http://127.0.0.1:5000/recommend/1
+```
 
+** Output:**
 
-Example output:
-
+```json
 {
   "user_id": 1,
   "action": "recommend_product",
   "score": 0.82
 }
+```
+
+**Another output (for user\_id 2):**
+
+```bash
+curl http://127.0.0.1:5000/recommend/2
+```
+
+```json
+{
+  "user_id": 2,
+  "action": "send_message",
+  "score": 0.45
+}
+```
+
+**Error Case (user not found):**
+
+```bash
+curl http://127.0.0.1:5000/recommend/99
+```
+
+```json
+{
+  "error": "User not found"
+}
+```
+
+---
+
+### **Explanation of Output**
+
+1. **Normal Case:**
+
+   * Returns `user_id`, `action`, and `score`.
+   * `action` is decided based on `engagement_score` from KumoRFM.
+2. **Fallback Case:**
+
+   * If `engagement_score <= 0.7`, `action` defaults to `"send_message"`.
+3. **Error Handling:**
+
+   * If user ID does not exist, API returns a 404 error with `"error": "User not found"`.
+
+
+---
+
+If you want, I can now **show Step 5 in a browser interface with multiple users** along with **live JSON outputs** for a complete demo-ready view.
+
+Do you want me to do that?
